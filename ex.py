@@ -1,14 +1,9 @@
-from savReaderWriter import SavReader
+from savReaderWriter import SavHeaderReader
 
 f = "example_spss.sav"
 
-with SavReader(f, returnHeader=True) as reader:
-    header = reader.next()
-    for record in reader:
-        print(record)
-
-data = SavReader(f)
-list_of_lists = data.all()
-print(data.getSavFileInfo())
+data = SavHeaderReader(f)
+d = data.dataDictionary()
+for k in d:
+    print(k, d[k])
 data.close()
-print(list_of_lists)
