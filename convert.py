@@ -1,16 +1,23 @@
 from __future__ import print_function
 from __future__ import unicode_literals
+from os import path
+import pdfformread
+
 
 def main():
-    pass
+    pdf_folder = path.join(path.dirname(__file__) ,'files')
+    for filename in gather_pdfs(pdf_folder):
+        data = read_pdf(filename)
+        print(data)
 
 def gather_pdfs(folder):
     # foldername -> [filename]
-    pass
+    import glob
+    return glob.glob(path.join(folder, '*.pdf'))
 
 def read_pdf(filename):
     # filename -> dict
-    pass
+    return pdfformread.load_form(filename)
 
 
 

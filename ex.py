@@ -9,5 +9,6 @@ with SavReader(f, returnHeader=True) as reader:
 
 data = SavReader(f)
 list_of_lists = data.all()
+print(data.getSavFileInfo())
 data.close()
 print(list_of_lists)
